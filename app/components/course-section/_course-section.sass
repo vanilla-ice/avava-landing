@@ -1,0 +1,86 @@
+.one
+  color: $yellow
+.two
+  color: $pink
+.three
+  color: $blue
+
+.course-section
+  .container
+    padding-top: 40px
+    @extend .row
+    flex-wrap: wrap
+
+  &-item
+    width: 50%
+    height: 350px
+    position: relative
+    overflow: hidden
+    @extend .column
+    padding: 40px 40px
+
+
+    &:before
+      content: ""
+      position: absolute
+      width: 650px
+      height: 650px
+      top: 50%
+      left: 50%
+      z-index: 1
+      border-radius: 50%
+      transition: transform 1s ease-in-out
+    &:hover
+      &:before
+        transform: translate(-50%, -50%) !important
+      .one, .two, .three
+        color: black
+
+
+
+    &:first-of-type
+      &:before
+        background: $yellow
+        transform: translate(-150%, -150%)
+
+    &:nth-of-type(2)
+      &:before
+        background: $pink
+        transform: translate(150%, -150%)
+
+    &:nth-of-type(3)
+      &:before
+        background: $blue
+        transform: translate(-150%, 150%)
+
+    &-title
+      font-size: 40px
+      z-index: 5
+      transition: color 1s ease
+
+    &-description
+      font-size: 20px
+      z-index: 2
+
+
+
+  &-image
+    width: 50%
+    position: relative
+    &-alt
+      position: absolute
+      top: 70%
+      left: -65%
+      @extend .row
+      align-items: flex-start
+      span
+        font-size: 40px
+        font-weight: bold
+      .name
+        font-size: 40px
+        @extend .column
+        span
+          font-family: 'Proxima Nova Lt'
+          font-weight: lighter
+          font-size: 20px
+          margin-left: 24px
